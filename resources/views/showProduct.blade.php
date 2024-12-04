@@ -27,7 +27,11 @@
                     <td>RM{{$product->price}}</td>
                     <td>{{$product->quantity}}</td>
                     <td>{{$product->categoryID}}</td>
-                    <td style="white-space: nowrap;"><a href="{{route('editProduct', ['id'=>$product->id])}}" class="btn btn-warning btn-xs">Edit</a>&nbsp;<a href="" class="btn btn-danger btn-xs" onClick="return confirm('')">Delete</a></td>
+                    <td>
+                        <a href="{{route('editProduct', ['id'=>$product->id])}}" class="btn btn-warning btn-xs">Edit</a>
+                        &nbsp;
+                        <a href="{{route('deleteProduct', ['id'=>$product->id])}}" class="btn btn-danger btn-xs" onClick="return confirm('确定？')">Delete</a>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>
