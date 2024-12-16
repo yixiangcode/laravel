@@ -36,6 +36,12 @@ class ProductController extends Controller
     public function update(){
         $r=request(); // retrieve data from html input
         $product=Product::find($r->id); // find record based on primary key, make sure consistency
+        if($r -> file('productImage') != ''){
+            $image=$r -> file('productImage');
+            $image->move('images', $image -> getClientOriginalName());
+            $product -> image = $image -> getClientOriginalName();
+        }
+
         $product->name=$r->productName;
         $product->description=$r->productDescription;
         $product->price=$r->productPrice;
@@ -49,5 +55,11 @@ class ProductController extends Controller
         $product=Product::find($id);
         $product->delete(); // delete from products where id='$id'
         return redirect()->route('showProduct');
+    }
+
+    public function detail($id){
+        $products=Product::all()->where('id',$id);
+        //select * from products where id='$id';
+        return view('productDetail')->with('products', $products); // products is variable name, product is array
     }
 }

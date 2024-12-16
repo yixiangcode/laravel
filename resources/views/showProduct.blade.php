@@ -21,7 +21,7 @@
                @foreach($products as $product)
                 <tr>
                     <td>{{$product->id}}</td>
-                    <td><img src="" alt="" width="100" class="img-fluid"></td>
+                    <td><img src="{{asset('images')}}/{{$product->image}}" alt="" width="100" class="img-fluid"></td>
                     <td style="white-space: nowrap;">{{$product->name}}</td>
                     <td style="white-space: nowrap;">{{$product->description}}</td>
                     <td>RM{{$product->price}}</td>
