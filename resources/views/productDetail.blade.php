@@ -5,7 +5,7 @@
     <div class="col-sm-8">
         <br><br>
         <div class="card-body">
-            <form action="" method="POST">
+            <form action="{{route('addCart')}}" method="POST">
             @CSRF
             @foreach($products as $product)
             <div class="row">

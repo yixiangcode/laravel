@@ -42,3 +42,11 @@ Route::get('/deleteProduct/{id}',
 
 Route::get('/productDetail/{id}',
 [App\Http\Controllers\ProductController::class,'detail'])->name('productDetail');
+
+Route::post('/addCart',
+[App\Http\Controllers\CartController::class,'addCart'])->name('addCart');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
