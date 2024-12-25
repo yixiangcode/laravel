@@ -62,4 +62,10 @@ class ProductController extends Controller
         //select * from products where id='$id';
         return view('productDetail')->with('products', $products); // products is variable name, product is array
     }
+
+    public function search(){
+        $keyword = request()->input('keyword');
+        $products = Product::where('name', 'LIKE', '%' . $keyword . '%')-> get();
+        return view('showProduct')->with('products', $products);
+    }
 }
