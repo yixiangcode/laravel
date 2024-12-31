@@ -9,6 +9,7 @@ use App\Models\myCart;
 use App\Models\myOrder;
 use DB;
 use Auth;
+use Notification;
 
 class PaymentController extends Controller
 {
@@ -37,6 +38,9 @@ class PaymentController extends Controller
             $carts->orderID=$orderID->id;
             $carts->save();
         }
+
+        $email = 'seller@live.com';
+        Notification::route('mail', $email)->notify(new \App\Notifications\orderPaid($email));
 
         return back();
     }
