@@ -37,9 +37,9 @@
             </tbody>
         </table>
     </div>
-    <div class="col-sm-4"></div>
-    <div class="col-sm-2"></div>
-    <div class="col-sm-6"></div>
+    {{--<div class="col-sm-4"></div>--}}
+    {{--<div class="col-sm-2"></div>--}}
+    {{--<div class="col-sm-6"></div>--}}
 </div>
 
 @endsection

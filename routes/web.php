@@ -52,8 +52,8 @@ Route::get('/myCart',
 Route::post('/checkout',
 [App\Http\Controllers\PaymentController::class,'paymentPost'])->name('payment.post');
 
-Route::post('/search',
-[App\Http\Controllers\ProductController::class,'search'])->name('search');
+Route::get('/searchProduct',
+[App\Http\Controllers\ProductController::class,'search'])->name('searchProduct');
 
 Auth::routes();
 

@@ -65,7 +65,15 @@ class ProductController extends Controller
 
     public function search(){
         $keyword = request()->input('keyword');
-        $products = Product::where('name', 'LIKE', '%' . $keyword . '%')-> get();
-        return view('showProduct')->with('products', $products);
+
+        if($keyword){
+            $viewProduct = Product::where('name', 'LIKE', '%' . $keyword . '%')
+            -> orWhere('description', 'LIKE', "%{$keyword}%")
+            -> get();
+        }else{
+            $viewProduct = Product::all(); // SQL select * from products
+        }
+        return view('searchProduct')->with('products', $viewProduct)
+        ->with('keyword', $keyword); // products is variable name
     }
 }
